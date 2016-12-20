@@ -1,0 +1,10 @@
+{
+  "name": "todo",
+  "version": "1.0.0",
+  "description": "a small todo app with react, redux-saga and rails 5 api",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "http://siepet.pl",
+  "license": "MIT"
+}
