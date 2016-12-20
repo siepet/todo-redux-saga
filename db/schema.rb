@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161220143558) do
+ActiveRecord::Schema.define(version: 20161220143853) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "todo_items", force: :cascade do |t|
+    t.text     "body"
+    t.integer  "todo_list_id"
+    t.boolean  "finished"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["todo_list_id"], name: "index_todo_items_on_todo_list_id", using: :btree
+  end
 
   create_table "todo_lists", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -21,4 +30,5 @@ ActiveRecord::Schema.define(version: 20161220143558) do
     t.string   "name"
   end
 
+  add_foreign_key "todo_items", "todo_lists"
 end
