@@ -5,7 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build-dev": "NODE_ENV=development webpack -d --config webpack.config.dev.js",
-    "start": "NODE_ENV=development node webpack webpack-dev-server.js"
+    "start": "NODE_ENV=development node webpack-dev-server.js"
   },
   "author": "http://siepet.pl",
   "license": "MIT",
@@ -23,5 +23,8 @@
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "webpack": "^1.14.0"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^1.16.2"
   }
 }
