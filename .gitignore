@@ -19,5 +19,7 @@
 !/log/.keep
 !/tmp/.keep
 
+app/assets/javascripts/react_bundle.*
+
 # Ignore Byebug command history file.
 .byebug_history
