@@ -25,6 +25,7 @@
     "webpack": "^1.14.0"
   },
   "devDependencies": {
+    "babel-plugin-transform-class-properties": "^6.19.0",
     "webpack-dev-server": "^1.16.2"
   }
 }
