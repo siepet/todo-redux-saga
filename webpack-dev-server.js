@@ -4,6 +4,7 @@ const config = require('./webpack.config.dev');
 
 const webpackDevServer = new WebpackDevServer(webpack(config), {
   quiet: false,
+  publicPath: config.output.publicPath,
 });
 
 webpackDevServer.listen(8080, 'localhost', err => {
