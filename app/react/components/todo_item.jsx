@@ -9,7 +9,7 @@ export default class TodoItem extends React.Component {
   render() {
     return (
       <div className="todo__item">
-        <div className="todo__item-status">{ this.props.finished }</div>
+        <div className="todo__item-status">{ this.props.finished ? "y" : "n" }</div>
         <div className="todo__item-body">{ this.props.body }</div>
         <div className="todo__item-confirm">btn</div>
       </div>
