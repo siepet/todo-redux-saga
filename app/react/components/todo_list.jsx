@@ -32,6 +32,7 @@ export default class TodoList extends React.Component {
   render() {
     return (
       <div className="todo__list">
+        <div className="todo__list-name">{ this.props.name }</div>
         { this.state.todo_items.map(todo =>
           <TodoItem
             id={todo.id}
