@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import axios from 'axios';
 import TodoItem from './todo_item';
+import NewTodoForm from './new_todo_form';
 
 export default class TodoList extends React.Component {
   static propTypes = {
@@ -14,6 +15,8 @@ export default class TodoList extends React.Component {
     this.state = {
       todo_items: [],
     }
+
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentWillMount() {
@@ -29,6 +32,16 @@ export default class TodoList extends React.Component {
     })
   }
 
+  handleSubmit(todo_body) {
+    this.setState((state, props) => {
+      let items = state.todo_items.slice()
+      items.push({ id: Math.random() * 100, body: todo_body, finished: false})
+      return {
+        todo_items: items,
+      }
+    })
+  }
+
   render() {
     return (
       <div className="todo__list">
@@ -41,6 +54,9 @@ export default class TodoList extends React.Component {
             key={todo.id}
           />
         )}
+        <NewTodoForm
+          handleSubmit={this.handleSubmit}
+        />
       </div>
     )
   }
