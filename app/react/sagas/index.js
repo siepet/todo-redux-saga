@@ -1,8 +1,10 @@
 import { call, put, takeEvery, takeLatest } from 'redux-saga/effects';
+import Api from './../api';
 
 function* fetchTodoLists(action) {
   try {
-    debugger
+    const todoLists = yield call(Api.fetchTodoLists);
+    yield put({type: 'ADD_TODO_LISTS', todo_lists: todoLists})
   } catch(e) {
     console.log(e);
   }
