@@ -1,15 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider, connect } from 'react-redux';
+import createSagaMiddleware from 'redux-saga';
 
 import axios from 'axios';
 
 import TodoList from './components/todo_list';
+
 import reducer from './reducers';
+import mySaga from './sagas';
+
 import { fetchTodoLists } from './actions'
 
-const store = createStore(reducer);
+
+const sagaMiddleware = createSagaMiddleware();
+
+const store = createStore(reducer, applyMiddleware(sagaMiddleware));
+sagaMiddleware.run(mySaga);
 
 const rootElement = document.getElementById('main');
 
