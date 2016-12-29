@@ -10,7 +10,7 @@ const styleFile = path.join(__dirname, 'app/assets/stylesheets/application.scss'
 
 module.exports = {
   devtool: 'eval-source-map',
-  entry: [indexFile, styleFile],
+  entry: ['babel-polyfill', indexFile, styleFile],
   output: {
     path: outputPath,
     filename: 'react_bundle.js',
