@@ -2,10 +2,9 @@ import axios from 'axios';
 
 const Api = {
   fetchTodoLists: () => {
-    debugger
     return axios.get('/todo_lists')
     .then((response) => {
-      debugger
+      return response.data.todo_lists
     })
     .catch((response) => {
       debugger

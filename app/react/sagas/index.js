@@ -3,7 +3,7 @@ import Api from './../api';
 
 function* fetchTodoLists(action) {
   try {
-    const todoLists = yield call(Api.fetchTodoLists);
+    const todoLists = yield call(Api.fetchTodoLists, action);
     yield put({type: 'ADD_TODO_LISTS', todo_lists: todoLists})
   } catch(e) {
     console.log(e);
