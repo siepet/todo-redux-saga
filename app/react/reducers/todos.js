@@ -3,8 +3,16 @@ const todoList = (state, action) => {
     case 'ADD_TODO_LIST':
       return {
         id: action.id,
-        items: action.items,
+        name: action.name,
       }
+    case 'ADD_TODO_LISTS':
+      const lists = action.todoLists.map(list => {
+        return {
+          id: list.id,
+          name: list.name
+        }
+      })
+      return lists
     default:
       return state
   }
@@ -18,11 +26,11 @@ const todoLists = (state = initialState, action) => {
   switch(action.type) {
     case 'ADD_TODO_LIST':
       return Object.assign({}, state, {
-        todos: [...state.todoLists, todoList(undefined, action)]
+        todoLists: [...state.todoLists, todoList(undefined, action)]
       })
-    case 'FETCH_TODO_LISTS':
+    case 'ADD_TODO_LISTS':
       return Object.assign({}, state, {
-        todos: action.todoLists
+        todoLists: [...state.todoLists, ...todoList(undefined, action)]
       })
     default:
       return state
